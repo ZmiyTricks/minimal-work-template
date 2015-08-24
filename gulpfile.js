@@ -35,7 +35,7 @@ gulp.task('copy-fonts', function() {
     gulp.src([frontendSourcesDirectory + 'static/fonts/**/*.svg',
               frontendSourcesDirectory + 'static/fonts/**/*.woff',
               frontendSourcesDirectory + 'static/fonts/**/*.ttf'])
-        .pipe(gulp.dest(generatedResourcesDirectory + 'fonts'))
+        .pipe(gulp.dest(generatedResourcesDirectory + 'font'))
         .pipe(connect.reload());
 });
 gulp.task('dev-js', function() {
