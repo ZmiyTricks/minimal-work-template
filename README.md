@@ -9,5 +9,6 @@
 		- /static - other resources(img, fonts, vendor js and css)
     - ./misc - for other data
     
-+ gulp dev-task with watchers: *gulp dev*
++ gulp dev-task with watchers: *gulp watch*
 + after run dev task your app is available at *http://localhost:9007*
++ release gulp task: *gulp build*
