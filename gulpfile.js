@@ -13,17 +13,17 @@ var generatedResourcesDirectory = 'dist/',
 
 gulp.task('compress-img', function() {
     gulp.src([frontendSourcesDirectory + 'modules/**/*.png',
-              frontendSourcesDirectory + 'modules/**/*.jpg',
-              frontendSourcesDirectory + 'modules/**/*.gif',
-              frontendSourcesDirectory + 'static/**/*.jpg',
-              frontendSourcesDirectory + 'static/**/*.png',
-              frontendSourcesDirectory + 'static/**/*.gif'])
+                     frontendSourcesDirectory + 'modules/**/*.jpg',
+                     frontendSourcesDirectory + 'modules/**/*.gif',
+                     frontendSourcesDirectory + 'static/**/*.jpg',
+                     frontendSourcesDirectory + 'static/**/*.png',
+                     frontendSourcesDirectory + 'static/**/*.gif'])
     .pipe( imagemin({progressive: true}) )
     .pipe(gulp.dest(generatedResourcesDirectory + 'img'))
     .pipe(connect.reload());
 });
 gulp.task('build-html', function() {
-    gulp.src(frontendSourcesDirectory + 'modules/**/*.jade')
+    gulp.src([frontendSourcesDirectory + 'modules/**/*.jade', !frontendSourcesDirectory + 'modules/**/_*.jade'])
         .pipe(jade({pretty: true})).on('error', console.log)
         .pipe(gulp.dest(generatedResourcesDirectory + 'templates'));
     gulp.src(frontendSourcesDirectory + 'pages/**/*.jade')
@@ -32,7 +32,7 @@ gulp.task('build-html', function() {
         .pipe(connect.reload());
 });
 gulp.task('copy-fonts', function() {
-    gulp.src([frontendSourcesDirectory + 'static/fonts/**/*.svg',
+    gulp.src([frontendSourcesDirectory + 'static/fonts/**/*.woff2',
               frontendSourcesDirectory + 'static/fonts/**/*.woff',
               frontendSourcesDirectory + 'static/fonts/**/*.ttf'])
         .pipe(gulp.dest(generatedResourcesDirectory + 'font'))
