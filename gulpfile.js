@@ -13,11 +13,11 @@ var generatedResourcesDirectory = 'dist/',
 
 gulp.task('compress-img', function() {
     gulp.src([frontendSourcesDirectory + 'modules/**/*.png',
-                     frontendSourcesDirectory + 'modules/**/*.jpg',
-                     frontendSourcesDirectory + 'modules/**/*.gif',
-                     frontendSourcesDirectory + 'static/**/*.jpg',
-                     frontendSourcesDirectory + 'static/**/*.png',
-                     frontendSourcesDirectory + 'static/**/*.gif'])
+              frontendSourcesDirectory + 'modules/**/*.jpg',
+              frontendSourcesDirectory + 'modules/**/*.gif',
+              frontendSourcesDirectory + 'static/**/*.jpg',
+              frontendSourcesDirectory + 'static/**/*.png',
+              frontendSourcesDirectory + 'static/**/*.gif'])
     .pipe( imagemin({progressive: true}) )
     .pipe(gulp.dest(generatedResourcesDirectory + 'img'))
     .pipe(connect.reload());
